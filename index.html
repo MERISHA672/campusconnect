@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CampusConnect | Student Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>CC</span>
+            <h2>CampusConnect</h2>
+        </div>
+
+        <nav>
+            <a href="#dashboard" class="active">🏠 Dashboard</a>
+            <a href="#courses">📚 Courses</a>
+            <a href="#tasks">✅ Tasks</a>
+            <a href="#notes">📝 Notes</a>
+            <a href="#timetable">📅 Timetable</a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button id="themeToggle">🌙 Dark Mode</button>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div>
+                <p class="small-text">Student Dashboard</p>
+                <h1>Welcome back, Melissa 👋</h1>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">M</div>
+                <div>
+                    <strong>Melissa</strong>
+                    <small>IT Student</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard">
+
+            <div class="hero">
+
+                <div>
+                    <p>KEEP LEARNING</p>
+                    <h2>Build your future with knowledge.</h2>
+                    <p>
+                        Manage your courses, assignments, notes and
+                        daily activities from one place.
+                    </p>
+
+                    <button onclick="scrollToCourses()">
+                        Explore Courses →
+                    </button>
+                </div>
+
+                <div class="hero-icon">
+                    🎓
+                </div>
+
+            </div>
+
+
+            <!-- STATISTICS -->
+            <div class="stats">
+
+                <div class="stat-card">
+                    <span>📚</span>
+                    <div>
+                        <h3 id="courseCount">6</h3>
+                        <p>Courses</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span>✅</span>
+                    <div>
+                        <h3 id="taskCount">0</h3>
+                        <p>Tasks</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span>📝</span>
+                    <div>
+                        <h3 id="noteCount">0</h3>
+                        <p>Notes</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <span>🔥</span>
+                    <div>
+                        <h3>12</h3>
+                        <p>Day Streak</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COURSES -->
+        <section id="courses" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-text">MY LEARNING</p>
+                    <h2>Popular Courses</h2>
+                </div>
+
+                <input
+                    type="text"
+                    id="courseSearch"
+                    placeholder="Search courses..."
+                >
+            </div>
+
+
+            <div class="course-grid" id="courseGrid">
+
+                <article class="course-card">
+
+                    <div class="course-icon">💻</div>
+
+                    <span class="tag">Programming</span>
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Learn HTML, CSS, JavaScript and modern
+                        web development techniques.
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 75%"></div>
+                    </div>
+
+                    <small>75% completed</small>
+
+                </article>
+
+
+                <article class="course-card">
+
+                    <div class="course-icon">🗄️</div>
+
+                    <span class="tag">Database</span>
+
+                    <h3>Database Systems</h3>
+
+                    <p>
+                        Learn SQL, database design, relationships,
+                        constraints and normalization.
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 60%"></div>
+                    </div>
+
+                    <small>60% completed</small>
+
+                </article>
+
+
+                <article class="course-card">
+
+                    <div class="course-icon">🌐</div>
+
+                    <span class="tag">Networking</span>
+
+                    <h3>Computer Networks</h3>
+
+                    <p>
+                        Understand LANs, protocols, IP addressing,
+                        switches and network security.
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 45%"></div>
+                    </div>
+
+                    <small>45% completed</small>
+
+                </article>
+
+
+                <article class="course-card">
+
+                    <div class="course-icon">📊</div>
+
+                    <span class="tag">Statistics</span>
+
+                    <h3>Probability & Statistics</h3>
+
+                    <p>
+                        Explore probability, data analysis,
+                        visualization and statistical methods.
+                    </p>
+
+                    <div class="progress">
+                        <div style="width: 55%"></div>
+                    </div>
+
+                    <small>55% completed</small>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- TASKS -->
+        <section id="tasks" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-text">PRODUCTIVITY</p>
+                    <h2>My Tasks</h2>
+                </div>
+            </div>
+
+            <div class="task-box">
+
+                <div class="task-input">
+
+                    <input
+                        type="text"
+                        id="taskInput"
+                        placeholder="Add a new task..."
+                    >
+
+                    <button onclick="addTask()">Add Task</button>
+
+                </div>
+
+                <ul id="taskList"></ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTES -->
+        <section id="notes" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="small-text">QUICK NOTES</p>
+                    <h2>My Notes</h2>
+                </div>
+            </div>
+
+            <div class="notes-container">
+
+                <textarea
+                    id="noteInput"
+                    placeholder="Write something you want to remember..."
+                ></textarea>
+
+                <button onclick="saveNote()">Save Note</button>
+
+                <div id="notesList"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TIMETABLE -->
+        <section id="timetable" class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="small-text">SCHEDULE</p>
+                    <h2>Today's Timetable</h2>
+                </div>
+
+            </div>
+
+            <div class="schedule">
+
+                <div class="schedule-item">
+                    <strong>08:00 AM</strong>
+                    <div>
+                        <h3>Database Systems</h3>
+                        <p>Lecture Room A</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <strong>11:00 AM</strong>
+                    <div>
+                        <h3>Web Development</h3>
+                        <p>Computer Lab</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <strong>02:00 PM</strong>
+                    <div>
+                        <h3>Computer Networks</h3>
+                        <p>Lecture Room B</p>
+                    </div>
+                </div>
+
+                <div class="schedule-item">
+                    <strong>04:00 PM</strong>
+                    <div>
+                        <h3>Personal Study</h3>
+                        <p>Library</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            <p>© 2026 CampusConnect • Built with HTML, CSS & JavaScript</p>
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
